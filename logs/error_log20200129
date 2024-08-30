@@ -1,0 +1,8 @@
+[Wed Jan 29 06:38:03 2020] [error] [client 196.157.83.69] mod_mime_magic: invalid type 0 in mconvert()., referer: http://agricolalucas.com.br/css/styles.css
+[Wed Jan 29 08:53:36 2020] [error] [client 177.221.203.202] mod_mime_magic: invalid type 0 in mconvert()., referer: http://agricolalucas.com.br/css/styles.css
+[Wed Jan 29 08:56:15 2020] [error] [client 177.221.203.202] mod_mime_magic: invalid type 0 in mconvert()., referer: http://agricolalucas.com.br/css/styles.css
+[Wed Jan 29 11:19:17 2020] [error] [client 177.221.203.202] mod_mime_magic: invalid type 0 in mconvert()., referer: http://agricolalucas.com.br/css/style.css
+[Wed Jan 29 11:40:14 2020] [error] [client 177.102.212.41] mod_mime_magic: invalid type 0 in mconvert()., referer: http://agricolalucas.com.br/css/styles.css
+[Wed Jan 29 17:33:04 2020] [error] [client 177.221.203.202] mod_mime_magic: invalid type 0 in mconvert()., referer: http://agricolalucas.com.br/css/styles.css
+[Wed Jan 29 23:18:07 2020] [error] [client 69.171.251.15] mod_mime_magic: invalid type 0 in mconvert().
+[Wed Jan 29 23:19:06 2020] [error] [client 173.252.87.43] mod_mime_magic: invalid type 0 in mconvert().

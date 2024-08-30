@@ -1,0 +1,7 @@
+logs:
+  - type: file
+    path: /path/to/your/project/storage/logs/laravel-json-datadog-fpm-fcgi.log
+    source: 'fpm'
+  - type: file
+    path: /path/to/your/project/storage/logs/laravel-json-datadog-cli.log
+    source: 'cli'

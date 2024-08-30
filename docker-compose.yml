@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+    comex-web:
+        build: ./bin/webserver
+        container_name: web
+        image: comex-web
+        restart: 'always'
+        ports:
+            - "8009:80"
+            - "443:443"
+        volumes:
+            - .:/var/www/html/
+            - '/app/node_modules'
+        networks:
+            - default
+
+    comex-db:
+        build: ./bin/mysql
+        container_name: 'mysql'
+        image: comex-db
+        restart: 'always'
+        ports:
+            - "3307:3306"
+        volumes:
+            - ./mysql-data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_HOST: localhost
+            MYSQL_ROOT_PASSWORD: comexpass
+            MYSQL_DATABASE: comexdb
+            MYSQL_USER: comexuser
+            MYSQL_PASSWORD: comexpass
+            MYSQL_TCP_PORT: 3306
+
+    comex-phpmyadmin:
+        build: ./bin/phpmyadmin
+        links:
+            - comex-db
+        ports:
+            - '8010:80'
+        environment:
+            PMA_HOST: mysql
+            PMA_PORT: 3306
+        volumes:
+            - ./mysql-data:/var/lib/mysql
+        container_name: mysqladmin
+        image: comex-mysqladmin

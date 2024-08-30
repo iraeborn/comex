@@ -1,0 +1,6 @@
+[Thu Jan 30 02:26:30 2020] [error] [client 31.13.115.21] mod_mime_magic: invalid type 0 in mconvert().
+[Thu Jan 30 04:10:40 2020] [error] [client 195.201.165.48] mod_mime_magic: invalid type 0 in mconvert()., referer: http://agricolalucas.com.br/css/styles.css
+[Thu Jan 30 06:38:25 2020] [error] [client 31.13.127.7] mod_mime_magic: invalid type 0 in mconvert().
+[Thu Jan 30 18:39:52 2020] [error] [client 177.221.203.202] mod_mime_magic: invalid type 0 in mconvert()., referer: http://agricolalucas.com.br/css/styles.css
+[Thu Jan 30 19:13:48 2020] [error] [client 177.221.203.202] ModSecurity: collections_remove_stale: Failed deleting collection (name "ip", key "86.120.101.132_1759fce451e56b4eb624eea72c06ca78e73f27d0"): Internal error [hostname "agricolalucas.com.br"] [uri "/index.php"] [unique_id "XjNVFLrKmRcAAAV@I4UAAABd"]
+[Thu Jan 30 19:13:48 2020] [error] [client 177.221.203.202] ModSecurity: collections_remove_stale: Failed deleting collection (name "ip", key "45.228.208.52_"): Internal error [hostname "agricolalucas.com.br"] [uri "/index.php"] [unique_id "XjNVE7rKmRcAAGZDU90AAAAZ"]

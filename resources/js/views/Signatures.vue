@@ -1,0 +1,151 @@
+<template>
+  <div class="container-fluid">
+    <div id="ui-view">
+      <div class="panel panel-success">
+        <div class="card">
+          <div class="card-header">
+           <div class="row">
+              <div class="col">Signatures</div>
+              <div class="col text-right">
+                <router-link
+                  :to="{ name: 'New Signature' }"
+                  class="btn btn-success btn-sm"
+                >Add new signature</router-link>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="text-center" v-if="!objLst.length">
+              No records found
+            </p>
+            <table class="table table-sm" v-if="objLst.length">
+              <tr>
+                <th>Name</th>
+                <th>Content</th>
+                <th>&nbsp;</th>
+              </tr>
+              <tbody v-for="(obj, index) in objLst" :key="index">
+                <tr v-if="obj.id">
+                  <td>{{ obj.text }}</td>
+                  <td>
+                    <img :src="obj.url" width="150"/>
+                  </td>
+                  <td class="text-right">
+                    <router-link
+                      :to="{ name: 'Edit Signature', params: { id: obj.id } }"
+                      class="btn btn-success btn-sm"
+                      >Edit</router-link
+                    >
+
+                    <button
+                      type="button"
+                      class="btn btn-danger btn-sm"
+                      data-toggle="modal"
+                      :href="'#modal-' + index"
+                    >
+                      Delete
+                    </button>
+
+                    <div
+                      class="modal fade modal-danger text-left"
+                      :id="'modal-' + index"
+                    >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Are you sure?</h4>
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              aria-hidden="true"
+                            >
+                              &times;
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Deleting the signature {{ obj.name }}.</p>
+                            <p>
+                              This action is irreversible, are you sure you want
+                              to continue?
+                            </p>
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-default"
+                              data-dismiss="modal"
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-danger"
+                              @click="Exclude(obj,index)"
+                            >
+                              Confirm exclusion
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <popcorn-pagination
+              v-model="page"
+              :items="objLst"
+            ></popcorn-pagination>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.table .table {
+  background-color: #fef101;
+}
+</style>
+
+<script>
+import utilidade from "../mixins/utilidade";
+export default {
+  mixins: [utilidade],
+  data() {
+    return {
+      objLst: [],
+      filter: null,
+      filterType: "name",
+      page: [],
+    };
+  },
+  mounted: function () {
+    this.getDrivers();
+  },
+  methods: {
+    Exclude: function (driver,index) {
+      var self = this;
+
+      this.$http.delete("/api/signatures/" + driver.id).then(function (e) {
+        $("#modal-" + index).modal("hide");
+
+        if (e.body.success) {
+          this.getDrivers();
+          self.$toaster.success(e.body.success);
+          return;
+        }
+
+        self.$toaster.error(e.body.error);
+      });
+    },
+    getDrivers(search = "") {
+      this.$http.get("/api/signatures?search=" + search).then((response) => {
+        this.objLst =  response.body;
+      });
+    },
+  },
+};
+</script>

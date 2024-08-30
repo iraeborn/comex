@@ -1,0 +1,52 @@
+{
+  "name": "myli/laravel-datadog-logger",
+  "type": "library",
+  "description": "Custom laravel monolog logger for datadog logs management, both api and agent ways",
+  "keywords": [
+    "php",
+    "laravel",
+    "datadog",
+    "log",
+    "agent",
+    "datadogagent",
+    "datadoglog",
+    "management",
+    "datadog-logger",
+    "api",
+    "monolog",
+    "logger",
+    "handler",
+    "formatter"
+  ],
+  "homepage": "https://github.com/myLocalInfluence/laravel-datadog-logger",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aurélien SCHILTZ",
+      "email": "aurelien@myli.io",
+      "homepage": "https://www.myli.io"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "laravel/framework": "^5.6|^5.7|^5.8|^6.0|^7.0|^8.0",
+    "guzzlehttp/guzzle": "^6.0|^7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": ">=7.5.0",
+    "symfony/thanks": "*",
+    "php-mock/php-mock-phpunit": "^2.4"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Myli\\DatadogLogger\\Providers\\DataDogServiceProvider"
+      ]
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Myli\\DatadogLogger\\": "src/"
+    }
+  }
+}
