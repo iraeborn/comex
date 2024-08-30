@@ -64,6 +64,6 @@ RUN chown -R www-data:www-data /var/www
 
 USER www-data
 
-EXPOSE 8009
+EXPOSE 8080
 
 CMD ["/usr/local/bin/apache2-foreground"]
