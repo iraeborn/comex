@@ -1,0 +1,23 @@
+southamerica-east1
+
+optical-mode-382511
+ip de saida: 35.239.123.214
+
+mysql
+
+## usuario sql gcloud
+	sist7564_popcorn
+	sist7564@2020
+
+optical-mode-382511:us-central1:aurea-comex-data
+34.66.205.173
+
+162.240.62.88
+user: sist7564_popcorn
+3306
+db: sist7564_admin
+pass:sist7564@2020
+
+aurea-comex-data
+aurea-comex-user
+#A01i05$
