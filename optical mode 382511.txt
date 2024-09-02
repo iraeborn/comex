@@ -1,7 +1,8 @@
 southamerica-east1
 
 optical-mode-382511
-ip de saida: 35.239.123.214
+ip publico: 35.239.123.214
+nome da conexao da instancia: optical-mode-382511:us-central1:sist7564-popcorn
 
 mysql
 
