@@ -67,5 +67,6 @@ RUN php artisan config:clear
 USER www-data
 
 EXPOSE 8080
+EXPOSE 3000
 
 CMD ["/usr/local/bin/apache2-foreground"]
