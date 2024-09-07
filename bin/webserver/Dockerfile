@@ -62,8 +62,10 @@ RUN usermod --non-unique --uid 1000 www-data \
 
 RUN chown -R www-data:www-data /var/www
 
+RUN php artisan config:clear
+
 USER www-data
 
-EXPOSE 8009
+EXPOSE 8080
 
 CMD ["/usr/local/bin/apache2-foreground"]
